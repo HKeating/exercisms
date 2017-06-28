@@ -4,11 +4,12 @@ var Words = function() {
     var wordsObj = {};
     wordsArray.forEach(word => {
       word = word.replace(/^\'|\'$/g, '');
-      console.log(word);
+
       word === '' ? null : !wordsObj[word] ? wordsObj[word] = 1 : wordsObj[word] ++;
     });
-    
-
+    // console.log('Prototype stuff: ', Object.keys(wordsObj));
+    // console.log(str, ' : ', wordsObj);
+    // wordsObj[constructor] ? wordsObj[constructor] = 1 : null;
     return wordsObj;
   };
 };

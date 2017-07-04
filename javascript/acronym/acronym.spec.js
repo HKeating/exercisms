@@ -1,5 +1,7 @@
 var Acronyms = require('./acronym');
 
+console.log('******************** Acronyms: ********************', Acronyms);
+
 describe('Acronyms are produced from', function(){
   it('title cased phrases', function() {
     expect(Acronyms.parse('Portable Network Graphics')).toEqual('PNG');
@@ -25,4 +27,3 @@ describe('Acronyms are produced from', function(){
     expect(Acronyms.parse('Complementary metal-oxide semiconductor')).toEqual('CMOS');
   });
 });
-

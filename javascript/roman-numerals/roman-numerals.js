@@ -1,32 +1,51 @@
 var toRoman = function(num) {
   let workingNum = num;
   let result = '';
-  const M = Math.floor(num/1000);
-  workingNum -= M*1000;
-
-  console.log('M', Math.floor(num/1000));
-  console.log('D', Math.floor(num/500));
-  console.log('C', Math.floor(num/100));
-  console.log('L', Math.floor(num/50));
-  console.log('X', Math.floor(num/10));
-  console.log('V', Math.floor(num/5));
-  console.log('I', Math.floor(num/1));
-
+  for (var i = 0; i < numerals.length; i++) {
+    if (workingNum === numerals[i]['number'] -1 && workingNum) {
+      return result += (numerals[i+1]['letter'] + numerals[i]['letter']);
+      // numerals at position 2, 4 and 6 (100, 10, 1) are the ones with abnormal behaviour at 4/9 values.
+      // Problem: try to resolve here and return or just adjust and ensure rest of process resolves rest of number?
+    }
+    const numeralVal = Math.floor(workingNum/numerals[i]['number']);
+    workingNum -= numeralVal * numerals[i]['number'];
+    for (var j = 0; j < numeralVal; j++) {
+      result += numerals[i]['letter'];
+    }
+  }
+  return result;
 };
 
-function numeralise(num, numeralValue) {
-  const letter = Objects.keys(numerals).find(numeralValue);
-  
-};
 
-const numerals = {
-  'M': 1000,
-  'D': 500,
-  'C': 100,
-  'L': 50,
-  'X': 10,
-  'V': 5,
-  'I': 1
-};
+const numerals = [
+  {
+    'letter': 'M',
+    'number': 1000
+  },
+  {
+    'letter': 'D',
+    'number': 500
+  },
+  {
+    'letter': 'C',
+    'number': 100
+  },
+  {
+    'letter': 'L',
+    'number': 50
+  },
+  {
+    'letter': 'X',
+    'number': 10
+  },
+  {
+    'letter': 'V',
+    'number': 5
+  },
+  {
+    'letter': 'I',
+    'number': 1
+  }
+];
 
 module.exports = toRoman;

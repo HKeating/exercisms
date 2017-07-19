@@ -49,4 +49,3 @@ const numerals = [
 ];
 
 module.exports = toRoman;
-console.log(toRoman(1919));

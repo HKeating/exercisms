@@ -41,15 +41,12 @@ var Buffer = function(b) {
   };
 };
 
-
-
 const bufferEmptyException = () => {
   return new Error();
 };
 const bufferFullException = () => {
   return new Error();
 };
-
 
 module.exports = {
   circularBuffer,

@@ -62,7 +62,7 @@ describe('CircularBuffer', function() {
     [1,2,3].map(function(i) { buffer.write(i.toString()); });
     expect(buffer.read()).toBe('1');
   });
-
+ 
   xit('writing to a full buffer throws a BufferFullException', function() {
     var buffer = circularBuffer(2);
     buffer.write('1');
